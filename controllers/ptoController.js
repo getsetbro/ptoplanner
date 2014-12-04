@@ -142,11 +142,9 @@ app.controller('ptoController', function($scope, ptoManager, $rootScope) { //rem
 
       var dateTo = $scope.ptoList[i].dateTo;
       var dateFrom = $scope.ptoList[i].dateFrom;
-      //var diff = ( dateTo - dateFrom ) / 86400000; //24*60*60*1000
       var diff = 0;
-
+      //if PTO list item has halfDays true then var will be .5
       var ptoVar = ($scope.ptoList[i].halfDays) ? 0.5 : 1;
-
       var whileDate = new Date(dateFrom);
       var targetDate = new Date(dateTo);
       //loop through the PTO to not log weekends
