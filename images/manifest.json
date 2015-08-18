@@ -1,5 +1,6 @@
 {
-	"name": "PTO",
+	"name": "PTO Planner",
+	"short_name": "ptoplanner",
 	"icons": [
 		{
 			"src": "\/images\/android-chrome-36x36.png",
