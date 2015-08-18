@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en-US">
-
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width" />
   <title>PTO Planner</title>
-  <!--<link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.css" /> -->
-  <link rel="stylesheet" type="text/css" href="libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.min.css" />
-  <!--<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>-->
-  <link rel="stylesheet" type="text/css" href="stylesheets/screen.css" />
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,700&subset=latin"/>
+  <link rel="stylesheet" href="libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.min.css" />
+  <link rel="stylesheet" href="stylesheets/screen.css" />
+  <link rel="manifest" href="manifest.json"></link>
+  <script src="manup.min.js"></script>
 </head>
 <body class="body" ng-app="ptoPlanner">
   <h1 class="h1">PTO Planner</h1>
@@ -162,14 +160,11 @@ spacespace --><label><input type="checkbox" ng-model="holidayList.h6" ng-change=
   </div>
   <div id='tooltip' class="tooltip"></div>
 
-  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
   <script src="libs/jquery/1.10.2/jquery.min.js"></script>
-  <!-- <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script> -->
   <script src="libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
   <script src="scripts/jquery.flot.min.js"></script>
   <script src="scripts/jquery.flot.time.min.js"></script>
   <script src="scripts/jquery.flot.symbol.js"></script>
-  <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script> -->
   <script src="libs/angularjs/1.2.4/angular.min.js"></script>
   <script src="app/app.js"></script>
   <script src="services/dataStore.js"></script>
