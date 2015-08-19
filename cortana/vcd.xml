@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.2">
   <CommandSet xml:lang="en-us" Name="RJS">
-    <CommandPrefix>PTO Planner</CommandPrefix>
-    <Example>PTO Planner add note</Example>
+    <CommandPrefix>Vacation Planner</CommandPrefix>
+    <Example>Vacation Planner append note</Example>
 
-    <Command Name="addNote">
-      <Example>add a note {message} using PTO Planner</Example>
-      <ListenFor RequireAppName="BeforeOrAfterPhrase">[please] add a note [that] {noteSubject}</ListenFor>
-      <Feedback>adding {noteSubject} to PTO Planner</Feedback>
+    <Command Name="appendNote">
+      <Example>append a note {message} using Vacation Planner</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">[please] append a note [that] {noteSubject}</ListenFor>
+      <Feedback>appending {noteSubject} to Vacation Planner</Feedback>
       <Navigate/>
     </Command>
 
     <Command Name="showNote">
-      <Example>Show Notes on PTO Planner</Example>
+      <Example>Show Notes on Vacation Planner</Example>
       <ListenFor RequireAppName="BeforeOrAfterPhrase">show [my] notes</ListenFor>
       <Feedback>Showing your notes</Feedback>
       <Navigate/>

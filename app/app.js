@@ -123,7 +123,7 @@ app.run(function($rootScope) {
       var template = notifications.ToastTemplateType.toastImageAndText01;
       var toastXml = notifications.ToastNotificationManager.getTemplateContent(template);
       var toastTextElements = toastXml.getElementsByTagName("text");
-      toastTextElements[0].appendChild(toastXml.createTextNode("Toast from webapp"));
+      toastTextElements[0].appendChild(toastXml.createTextNode("Toast from Vacation Planner"));
       var toastImageElements = toastXml.getElementsByTagName("image");
       toastImageElements[0].setAttribute("src", "http://getsetbro.com/ptoplanner/images/ms-icon-310x310.png");
       toastImageElements[0].setAttribute("alt", "graphic");
@@ -149,9 +149,9 @@ app.run(function($rootScope) {
           // Speech reco result
           //console.dir(speechRecognitionResult);
           // The name of the voice command
-          if (speechRecognitionResult.rulePath[0] === "addNote") {
+          if (speechRecognitionResult.rulePath[0] === "appendNote") {
             //$('body').append("<br>addNote rule: " + speechRecognitionResult.rulePath[0]);
-            $('body').append("<br>addNote note from Cortana: " + speechRecognitionResult.text);
+            $('body').append("<br>appendNote note from Cortana: " + speechRecognitionResult.text);
           }
           if (speechRecognitionResult.rulePath[0] === "showNote") {
             //$('body').append("<br>showNote rule: " + speechRecognitionResult.rulePath[0]);
