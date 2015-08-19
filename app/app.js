@@ -156,7 +156,7 @@ app.run(function($rootScope) {
           }
           // The actual text spoken
           var textSpoken = speechRecognitionResult.text !== undefined ? speechRecognitionResult.text : "EXCEPTION";
-          c$('body').append("<br>This is the actual spoken text: " + textSpoken);
+          $('body').append("<br>This is the actual spoken text: " + textSpoken);
         }
       });
 
