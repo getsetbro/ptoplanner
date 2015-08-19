@@ -139,11 +139,11 @@ app.run(function($rootScope) {
         if (args.kind === activation.ActivationKind.voiceCommand) {
           $('body').append("<br>The activation kind: " + args.kind);
           $('body').append("<br>This is the kind for voice activation: " + activation.ActivationKind.voiceCommand);
-          console.table("The args are: " + args);
+          console.log("The args are: " + args);
 
           var speechRecognitionResult = args.result;
           // Speech reco result
-          console.table("<br>This is the speech reco test result: " + speechRecognitionResult.text);
+          console.log("<br>This is the speech reco test result: " + speechRecognitionResult.text);
           $('body').append("<br>This is the command .rulePath: " + speechRecognitionResult.rulePath[0]);
           //console.log("This is the command: " + speechRecognitionResult.RulePath[0]);
           // Speech reco result
