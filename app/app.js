@@ -139,7 +139,7 @@ app.run(function($rootScope) {
         // Check to see if the app was activated by a voice command
         if (args.kind === activation.ActivationKind.voiceCommand) {
           // Get the speech reco
-          //var speechRecognitionResult = args.result;
+          var speechRecognitionResult = args.result;
           var textSpoken = speechRecognitionResult.text;
 
           $rootScope.appTitle = textSpoken;
