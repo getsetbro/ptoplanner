@@ -116,19 +116,19 @@ app.run(function($rootScope) {
       $fromDP.datepicker("option", "maxDate", "12/31/"+curYear);
     };
 
-    // Namespace: Windows.UI.Notifications
-   if(typeof Windows !== undefined) {
-     var notifications = Windows.UI.Notifications;
-     var template = notifications.ToastTemplateType.toastImageAndText01;
-     var toastXml = notifications.ToastNotificationManager.getTemplateContent(template);
-     var toastTextElements = toastXml.getElementsByTagName("text");
-     toastTextElements[0].appendChild(toastXml.createTextNode("Toast from webapp"));
-     var toastImageElements = toastXml.getElementsByTagName("image");
-     toastImageElements[0].setAttribute("src", "http://getsetbro.com/ptoplanner/images/ms-icon-310x310.png");
-     toastImageElements[0].setAttribute("alt", "graphic");
-     var toast = new notifications.ToastNotification(toastXml);
-     var toastNotifier = notifications.ToastNotificationManager.createToastNotifier();
-     toastNotifier.show(toast);
-   }
 
+    // Namespace: Windows.UI.Notifications
+    if (typeof Windows !== 'undefined' && typeof Windows.UI !== 'undefined' && typeof Windows.UI.Notifications !== 'undefined') {
+      var notifications = Windows.UI.Notifications;
+      var template = notifications.ToastTemplateType.toastImageAndText01;
+      var toastXml = notifications.ToastNotificationManager.getTemplateContent(template);
+      var toastTextElements = toastXml.getElementsByTagName("text");
+      toastTextElements[0].appendChild(toastXml.createTextNode("Toast from webapp"));
+      var toastImageElements = toastXml.getElementsByTagName("image");
+      toastImageElements[0].setAttribute("src", "http://getsetbro.com/ptoplanner/images/ms-icon-310x310.png");
+      toastImageElements[0].setAttribute("alt", "graphic");
+      var toast = new notifications.ToastNotification(toastXml);
+      var toastNotifier = notifications.ToastNotificationManager.createToastNotifier();
+      toastNotifier.show(toast);
+    }
 });
