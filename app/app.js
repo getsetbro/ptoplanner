@@ -137,17 +137,17 @@ app.run(function($rootScope) {
       Windows.UI.WebUI.WebUIApplication.addEventListener("activated", function (args) {
         
         if (args.kind === activation.ActivationKind.voiceCommand) {
-          $('body').append("<br>The activation kind: " + args.kind);
-          $('body').append("<br>This is the kind for voice activation: " + activation.ActivationKind.voiceCommand);
-          console.log("The args are: " + args);
+          //$('body').append("<br>The activation kind: " + args.kind);
+          //$('body').append("<br>This is the kind for voice activation: " + activation.ActivationKind.voiceCommand);
+          console.dir(args);
 
           var speechRecognitionResult = args.result;
           // Speech reco result
-          console.log("<br>This is the speech reco test result: " + speechRecognitionResult.text);
+          $('body').append("<br>This is the speech reco test result: " + speechRecognitionResult.text);
           $('body').append("<br>This is the command .rulePath: " + speechRecognitionResult.rulePath[0]);
           //console.log("This is the command: " + speechRecognitionResult.RulePath[0]);
           // Speech reco result
-          $('body').append("<br>This is the speech reco result: " + speechRecognitionResult);
+          console.dir(speechRecognitionResult);
           // The name of the voice command
           $('body').append("<br>This is the name of the voice command: " + speechRecognitionResult.rulePath[0]);
           if (speechRecognitionResult.rulePath[0] === "addNote") {
