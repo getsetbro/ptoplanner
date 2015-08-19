@@ -124,8 +124,8 @@ app.run(function($rootScope) {
      var toastTextElements = toastXml.getElementsByTagName("text");
      toastTextElements[0].appendChild(toastXml.createTextNode("Toast from webapp"));
      var toastImageElements = toastXml.getElementsByTagName("image");
-     toastImageElements[0].setAttribute("src", "http://assets.codepen.io/assets/social/facebook-default.png");
-     toastImageElements[0].setAttribute("alt", "red graphic");
+     toastImageElements[0].setAttribute("src", "http://getsetbro.com/ptoplanner/images/ms-icon-310x310.png");
+     toastImageElements[0].setAttribute("alt", "graphic");
      var toast = new notifications.ToastNotification(toastXml);
      var toastNotifier = notifications.ToastNotificationManager.createToastNotifier();
      toastNotifier.show(toast);
