@@ -2,13 +2,23 @@
 <VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.2">
   <CommandSet xml:lang="en-us" Name="RJS">
     <CommandPrefix>PTO Planner</CommandPrefix>
-    <Example>PTO Planner rename to foo</Example>
-    <Command Name="Search">
-      <Example>rename {message} using PTO Planner</Example>
-      <ListenFor RequireAppName="BeforeOrAfterPhrase">Rename to {searchTerm}</ListenFor>
-      <Feedback>Rename to {searchTerm} with PTO Planner</Feedback>
+    <Example>PTO Planner add note</Example>
+
+    <Command Name="addNote">
+      <Example>add a note {message} using PTO Planner</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">[please] add a note [that] {noteSubject}</ListenFor>
+      <Feedback>adding {noteSubject} to PTO Planner</Feedback>
       <Navigate/>
     </Command>
-    <PhraseTopic Label="searchTerm" Scenario="Dictation"></PhraseTopic>
+
+    <Command Name="showNote">
+      <Example>Show Notes on PTO Planner</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">show [my] notes</ListenFor>
+      <Feedback>Showing your notes</Feedback>
+      <Navigate/>
+    </Command>
+
+    <PhraseTopic Label="noteSubject" Scenario="Dictation"></PhraseTopic>
+
   </CommandSet>
 </VoiceCommands>

@@ -132,16 +132,31 @@ app.run(function($rootScope) {
       toastNotifier.show(toast);
 
       // Subscribe to the Windows Activation Event
+      var activation = Windows.ApplicationModel.Activation;
+
       Windows.UI.WebUI.WebUIApplication.addEventListener("activated", function (args) {
-        var activation = Windows.ApplicationModel.Activation;
-        // Check to see if the app was activated by a voice command
+        
+        $('body').append("<br>The activation kind: " + args.kind);
+        $('body').append("<br>This is the kind for voice activation: " + activation.ActivationKind.voiceCommand);
+        $('body').append("<br>The args are: " + args);
+
         if (args.kind === activation.ActivationKind.voiceCommand) {
-          // Get the speech reco
+          //var speechRecognitionResult = args.result;
           var speechRecognitionResult = args.result;
-          var textSpoken = speechRecognitionResult.text;
-
-          $('body > h1.h1').append(': ' + textSpoken);
-
+          // Speech reco result
+          $('body').append("<br>This is the speech reco test result: " + speechRecognitionResult.text);
+          $('body').append("<br>This is the command .rulePath: " + speechRecognitionResult.rulePath[0]);
+          //console.log("This is the command: " + speechRecognitionResult.RulePath[0]);
+          // Speech reco result
+          $('body').append("<br>This is the speech reco result: " + speechRecognitionResult);
+          // The name of the voice command
+          $('body').append("<br>This is the name of the voice command: " + speechRecognitionResult.rulePath[0]);
+          if (speechRecognitionResult.rulePath[0] === "addNote") {
+            $('body').append("<br>Adding this note from Cortana: " + speechRecognitionResult.text);
+          }
+          // The actual text spoken
+          var textSpoken = speechRecognitionResult.text !== undefined ? speechRecognitionResult.text : "EXCEPTION";
+          c$('body').append("<br>This is the actual spoken text: " + textSpoken);
         }
       });
 
