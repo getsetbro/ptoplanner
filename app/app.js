@@ -11,6 +11,8 @@ app.run(function($rootScope) {
     var $fromDP = $("#from");
     var $toDP = $("#to");
 
+    $rootScope.appTitle = "PTO Planner";
+
     $rootScope.nowDate = newDate;
     $rootScope.gettime = newDate.getTime();
     $rootScope.getFullYear = curYear;
@@ -143,17 +145,17 @@ app.run(function($rootScope) {
           if (speechRecognitionResult.rulePath[0] === "search") {
             // Determine the stream name specified
             if (textSpoken.includes('foo') || textSpoken.includes('Foo')) {
-              console.log("The user is searching for foo");
+              $rootScope.appTitle = "foo";
             }
             else if (textSpoken.includes('bar') || textSpoken.includes('Bar') ) {
-              console.log("The user is searching for a bar");
+              $rootScope.appTitle = "bar";
             }
             else {
-              console.log("Invalid search term specified by user");
+              $rootScope.appTitle = "Invalid search term specified by user";
             }
           }
           else { 
-            console.log("No valid command specified");
+            $rootScope.appTitle = "No valid command specified";
           }
         }
       });

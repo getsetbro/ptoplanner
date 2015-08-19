@@ -1,6 +1,8 @@
 app.controller('ptoController', function($scope, ptoManager, $rootScope) { //removed floatingHolidayChecker
 "use strict";
 
+  $scope.appTitle = $rootScope.appTitle;
+
   $scope.startingBalance = ptoManager.getStartingBalance();
   $scope.prorateStart = ptoManager.getProrateStart();
   $scope.prorateEnd = ptoManager.getProrateEnd();
