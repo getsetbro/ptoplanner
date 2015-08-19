@@ -139,24 +139,11 @@ app.run(function($rootScope) {
         // Check to see if the app was activated by a voice command
         if (args.kind === activation.ActivationKind.voiceCommand) {
           // Get the speech reco
-          var speechRecognitionResult = args.result;
+          //var speechRecognitionResult = args.result;
           var textSpoken = speechRecognitionResult.text;
-          // Determine the command type {search} defined in vcd
-          if (speechRecognitionResult.rulePath[0] === "search") {
-            // Determine the stream name specified
-            if (textSpoken.includes('foo') || textSpoken.includes('Foo')) {
-              $rootScope.appTitle = "foo";
-            }
-            else if (textSpoken.includes('bar') || textSpoken.includes('Bar') ) {
-              $rootScope.appTitle = "bar";
-            }
-            else {
-              $rootScope.appTitle = "Invalid search term specified by user";
-            }
-          }
-          else { 
-            $rootScope.appTitle = "No valid command specified";
-          }
+
+          $rootScope.appTitle = textSpoken;
+
         }
       });
 
