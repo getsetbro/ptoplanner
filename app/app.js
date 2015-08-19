@@ -11,8 +11,6 @@ app.run(function($rootScope) {
     var $fromDP = $("#from");
     var $toDP = $("#to");
 
-    $rootScope.appTitle = "PTO Planner";
-
     $rootScope.nowDate = newDate;
     $rootScope.gettime = newDate.getTime();
     $rootScope.getFullYear = curYear;
@@ -142,7 +140,7 @@ app.run(function($rootScope) {
           var speechRecognitionResult = args.result;
           var textSpoken = speechRecognitionResult.text;
 
-          $rootScope.appTitle = textSpoken;
+          $('body > h1.h1').append(': ' + textSpoken);
 
         }
       });
