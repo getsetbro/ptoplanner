@@ -2,19 +2,19 @@
 <VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.2">
   <CommandSet xml:lang="en-us" Name="RJS">
     <CommandPrefix>Vacation Planner</CommandPrefix>
-    <Example>Vacation Planner show PTO</Example>
+    <Example>Vacation Planner show notes</Example>
 
     <Command Name="showNote">
-      <Example>Vacation Planner show PTO</Example>
-      <ListenFor RequireAppName="BeforeOrAfterPhrase">show [my] pto</ListenFor>
-      <Feedback>Showing your PTO</Feedback>
+      <Example>Vacation Planner show notes</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">show [my] notes</ListenFor>
+      <Feedback>Showing your notes</Feedback>
       <Navigate/>
     </Command>
 
     <Command Name="appendNote">
-      <Example>Vacation Planner schedule {pto}</Example>
-      <ListenFor RequireAppName="BeforeOrAfterPhrase">[please] schedule {noteSubject}</ListenFor>
-      <Feedback>Scheduling {noteSubject} to Vacation Planner</Feedback>
+      <Example>Vacation Planner add {pto}</Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase">[please] add {noteSubject}</ListenFor>
+      <Feedback>Add {noteSubject} to Vacation Planner</Feedback>
       <Navigate/>
     </Command>
 
