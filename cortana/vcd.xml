@@ -12,7 +12,7 @@
     </Command>
 
     <Command Name="appendNote">
-      <Example>Vacation Planner add {pto}</Example>
+      <Example>Vacation Planner add {note}</Example>
       <ListenFor RequireAppName="BeforeOrAfterPhrase">[please] add {noteSubject}</ListenFor>
       <Feedback>Add {noteSubject} to Vacation Planner</Feedback>
       <Navigate/>
