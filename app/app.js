@@ -160,7 +160,10 @@ app.run(function($rootScope) {
 
         }
       });
-
+console.dir(notifications);
+console.dir(notifications.TileTemplateType);
+console.dir(notifications.TileTemplateType.tileSquare150x150PeekImageAndText01);
+console.dir(notifications.TileUpdateManager);
       //tile
       // var tile = notifications.TileTemplateType.tileSquare150x150PeekImageAndText01;
       // var tileContent = notifications.TileUpdateManager.getTemplateContent(tile);
