@@ -118,20 +118,5 @@ app.run(function($rootScope) {
         }
       });
 
-      //tile
-      var tile = notifications.TileTemplateType.tileSquare150x150PeekImageAndText01;
-      var tileContent = notifications.TileUpdateManager.getTemplateContent(tile);
-      var tileText = tileContent.getElementsByTagName('text');
-      var tileImage = tileContent.getElementsByTagName('image');
-
-      tileText[0].appendChild(tileContent.createTextNode('Demo Message'));
-      tileImage[0].setAttribute('src', 'https://unsplash.it/150/150/?random');
-      tileImage[0].setAttribute('alt', 'Demo image');
-
-      var tileNotification = new notifications.TileNotification(tileContent);
-      var currentTime = new Date();
-      tileNotification.expirationTime = new Date(currentTime.getTime() + 600 * 1000);
-      notifications.TileUpdateManager.createTileUpdaterForApplication().update(tileNotification);
-
     }
 });

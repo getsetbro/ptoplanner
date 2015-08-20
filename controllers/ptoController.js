@@ -131,7 +131,6 @@ app.controller('ptoController', function($scope, ptoManager, $rootScope) { //rem
     return isValid;
   }
 
-
   $scope.$watch('ptoList', updateDaysUsed, true);
 
   function updateDaysUsed() {
@@ -174,5 +173,31 @@ app.controller('ptoController', function($scope, ptoManager, $rootScope) { //rem
       i++;
     }
   }
+
+  $scope.updateTile = function (e) {
+    // Namespace: Windows.UI.Notifications
+    if (typeof Windows !== 'undefined' && typeof Windows.UI !== 'undefined' && typeof Windows.UI.Notifications !== 'undefined') {
+
+      var notifications = Windows.UI.Notifications;
+
+      //tile
+      var tile = notifications.TileTemplateType.tileSquare150x150PeekImageAndText01;
+      var tileContent = notifications.TileUpdateManager.getTemplateContent(tile);
+      var tileText = tileContent.getElementsByTagName('text');
+      var tileImage = tileContent.getElementsByTagName('image');
+
+      tileText[0].appendChild(tileContent.createTextNode('Vacation Planner'));
+      tileImage[0].setAttribute('src', 'https://unsplash.it/150/150/?random');
+      tileImage[0].setAttribute('alt', 'Vacation Planner');
+
+      var tileNotification = new notifications.TileNotification(tileContent);
+      var currentTime = new Date();
+      tileNotification.expirationTime = new Date(currentTime.getTime() + 600 * 1000);
+      notifications.TileUpdateManager.createTileUpdaterForApplication().update(tileNotification);
+
+    }else{
+      e.target.disabled = true;
+    }
+  };
 
 });

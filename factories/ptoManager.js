@@ -36,7 +36,7 @@ app.factory('ptoManager', function(dataStore, $rootScope) {
 
   //prorate Start Date
   factory.getProrateStart = function() {
-    return ptoList.prorateStart || "01/01/2014";
+    return ptoList.prorateStart || curYear + "-01-01";
   };
   factory.setProrateStart = function(prorateStart) {
     ptoList.prorateStart = prorateStart;
@@ -45,7 +45,7 @@ app.factory('ptoManager', function(dataStore, $rootScope) {
 
   //prorate End Date
   factory.getProrateEnd = function() {
-    return ptoList.prorateEnd || "12/31/2014";
+    return ptoList.prorateEnd || curYear + "-12-31";
   };
   factory.setProrateEnd = function(prorateEnd) {
     ptoList.prorateEnd = prorateEnd;
