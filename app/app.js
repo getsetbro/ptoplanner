@@ -119,21 +119,9 @@ app.run(function($rootScope) {
 
     // Namespace: Windows.UI.Notifications
     if (typeof Windows !== 'undefined' && typeof Windows.UI !== 'undefined' && typeof Windows.UI.Notifications !== 'undefined') {
-      var notifications = Windows.UI.Notifications;
-      var template = notifications.ToastTemplateType.toastImageAndText01;
-      var toastXml = notifications.ToastNotificationManager.getTemplateContent(template);
-      var toastTextElements = toastXml.getElementsByTagName("text");
-      toastTextElements[0].appendChild(toastXml.createTextNode("Toast from Vacation Planner"));
-      var toastImageElements = toastXml.getElementsByTagName("image");
-      toastImageElements[0].setAttribute("src", "http://getsetbro.com/ptoplanner/images/ms-icon-310x310.png");
-      toastImageElements[0].setAttribute("alt", "graphic");
-      var toast = new notifications.ToastNotification(toastXml);
-      var toastNotifier = notifications.ToastNotificationManager.createToastNotifier();
-      toastNotifier.show(toast);
 
       // Subscribe to the Windows Activation Event
       var activation = Windows.ApplicationModel.Activation;
-
       Windows.UI.WebUI.WebUIApplication.addEventListener("activated", function (args) {
         
         if (args.kind === activation.ActivationKind.voiceCommand) {
@@ -151,12 +139,24 @@ app.run(function($rootScope) {
           // The name of the voice command
           if (speechRecognitionResult.rulePath[0] === "appendNote") {
             //$('body').append("<br>addNote rule: " + speechRecognitionResult.rulePath[0]);
-            $('body').append("<br>appendNote note from Cortana: " + speechRecognitionResult.text);
+            //$('body').append("<br>appendNote note from Cortana: " + speechRecognitionResult.text);
+            var notifications = Windows.UI.Notifications;
+            var template = notifications.ToastTemplateType.toastImageAndText01;
+            var toastXml = notifications.ToastNotificationManager.getTemplateContent(template);
+            var toastTextElements = toastXml.getElementsByTagName("text");
+            toastTextElements[0].appendChild(toastXml.createTextNode('You told Vacation Planner "' + speechRecognitionResult.text + '"'));
+            var toastImageElements = toastXml.getElementsByTagName("image");
+            toastImageElements[0].setAttribute("src", "http://getsetbro.com/ptoplanner/images/ms-icon-310x310.png");
+            toastImageElements[0].setAttribute("alt", "graphic");
+            var toast = new notifications.ToastNotification(toastXml);
+            var toastNotifier = notifications.ToastNotificationManager.createToastNotifier();
+            toastNotifier.show(toast);
           }
           if (speechRecognitionResult.rulePath[0] === "showNote") {
             //$('body').append("<br>showNote rule: " + speechRecognitionResult.rulePath[0]);
-            $('body').append("<br>showNote note from Cortana: " + speechRecognitionResult.text);
+            //$('body').append("<br>showNote note from Cortana: " + speechRecognitionResult.text);
           }
+
         }
       });
 
