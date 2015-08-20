@@ -122,6 +122,8 @@ app.run(function($rootScope) {
 
       // Subscribe to the Windows Activation Event
       var activation = Windows.ApplicationModel.Activation;
+      var notifications = Windows.UI.Notifications;
+
       Windows.UI.WebUI.WebUIApplication.addEventListener("activated", function (args) {
         
         if (args.kind === activation.ActivationKind.voiceCommand) {
@@ -140,7 +142,6 @@ app.run(function($rootScope) {
           if (speechRecognitionResult.rulePath[0] === "appendNote") {
             //$('body').append("<br>addNote rule: " + speechRecognitionResult.rulePath[0]);
             //$('body').append("<br>appendNote note from Cortana: " + speechRecognitionResult.text);
-            var notifications = Windows.UI.Notifications;
             var template = notifications.ToastTemplateType.toastImageAndText01;
             var toastXml = notifications.ToastNotificationManager.getTemplateContent(template);
             var toastTextElements = toastXml.getElementsByTagName("text");
@@ -159,6 +160,21 @@ app.run(function($rootScope) {
 
         }
       });
+
+      //tile
+      var tile = notifications.TileTemplateType.tileSquare150x150PeekImageAndText01;
+      var tileContent = notifications.TileUpdateManager.getTemplateContent(tile);
+      var tileText = tileContent.getElementsByTagName('text');
+      var tileImage = tileContent.getElementsByTagName('image');
+
+      tileText[0].appendChild(tileContent.createTextNode(message || 'Demo Message'));
+      tileImage[0].setAttribute('src', imgUrl || 'https://unsplash.it/150/150/?random');
+      tileImage[0].setAttribute('alt', imgAlt || 'Random demo image');
+
+      var tileNotification = new notifications.TileNotification(tileContent);
+      var currentTime = new Date();
+      tileNotification.expirationTime = new Date(currentTime.getTime() + 600 * 1000);
+      notifications.TileUpdateManager.createTileUpdaterForApplication().update(tileNotification);
 
     }
 });
