@@ -74,49 +74,6 @@ app.run(function($rootScope) {
         return value && JSON.parse(value);
     };
 
-    //bind jqueryUI datepicker to
-    // $('[data-dp]').each(function() {
-    //   var $this = $(this);
-    //   var dpData = $this.data("dp");
-    //   //if it has quarter end month number add min & max
-    //   if(dpData.qEnd){
-    //     $this.datepicker({
-    //       minDate: new Date(curYear, dpData.qEnd - 3, 1),
-    //       maxDate: new Date(curYear, dpData.qEnd, 0)
-    //     });
-    //   }else{ //otherwise bind without min & max
-    //     $this.datepicker({
-    //       minDate: new Date("01/01/"+curYear),
-    //       maxDate: new Date("12/31/"+curYear)
-    //     });
-    //   }
-    // });
-    // //Bind datepicker with min & max to the from & to inputs
-    // $fromDP.datepicker({
-    //     minDate: new Date("01/01/"+curYear),
-    //     maxDate: new Date("12/31/"+curYear),
-    //     onClose: function(selectedDate) {
-    //       if(selectedDate){
-    //         $("#to").datepicker("option", "minDate", selectedDate);
-    //       }
-    //     }
-    // });
-    // $toDP.datepicker({
-    //     minDate: new Date("01/01/"+curYear),
-    //     maxDate: new Date("12/31/"+curYear),
-    //     onClose: function(selectedDate) {
-    //       if(selectedDate){
-    //         $("#from").datepicker("option", "maxDate", selectedDate);
-    //       }
-    //     }
-    // });
-
-    // $rootScope.resetDP = function(){
-    //   $toDP.datepicker("option", "minDate", "01/01/"+curYear);
-    //   $fromDP.datepicker("option", "maxDate", "12/31/"+curYear);
-    // };
-
-
     // Namespace: Windows.UI.Notifications
     if (typeof Windows !== 'undefined' && typeof Windows.UI !== 'undefined' && typeof Windows.UI.Notifications !== 'undefined') {
 
@@ -160,24 +117,21 @@ app.run(function($rootScope) {
 
         }
       });
-console.dir(notifications);
-console.dir(notifications.TileTemplateType);
-console.dir(notifications.TileTemplateType.tileSquare150x150PeekImageAndText01);
-console.dir(notifications.TileUpdateManager);
+
       //tile
-      // var tile = notifications.TileTemplateType.tileSquare150x150PeekImageAndText01;
-      // var tileContent = notifications.TileUpdateManager.getTemplateContent(tile);
-      // var tileText = tileContent.getElementsByTagName('text');
-      // var tileImage = tileContent.getElementsByTagName('image');
+      var tile = notifications.TileTemplateType.tileSquare150x150PeekImageAndText01;
+      var tileContent = notifications.TileUpdateManager.getTemplateContent(tile);
+      var tileText = tileContent.getElementsByTagName('text');
+      var tileImage = tileContent.getElementsByTagName('image');
 
-      // tileText[0].appendChild(tileContent.createTextNode(message || 'Demo Message'));
-      // tileImage[0].setAttribute('src', imgUrl || 'http://getsetbro.com/ptoplanner/images/ms-icon-150x150.png');
-      // tileImage[0].setAttribute('alt', imgAlt || 'Demo image');
+      tileText[0].appendChild(tileContent.createTextNode('Demo Message'));
+      tileImage[0].setAttribute('src', 'https://unsplash.it/150/150/?random');
+      tileImage[0].setAttribute('alt', 'Demo image');
 
-      // var tileNotification = new notifications.TileNotification(tileContent);
-      // var currentTime = new Date();
-      // tileNotification.expirationTime = new Date(currentTime.getTime() + 600 * 1000);
-      // notifications.TileUpdateManager.createTileUpdaterForApplication().update(tileNotification);
+      var tileNotification = new notifications.TileNotification(tileContent);
+      var currentTime = new Date();
+      tileNotification.expirationTime = new Date(currentTime.getTime() + 600 * 1000);
+      notifications.TileUpdateManager.createTileUpdaterForApplication().update(tileNotification);
 
     }
 });
