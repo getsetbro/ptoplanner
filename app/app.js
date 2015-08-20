@@ -75,46 +75,46 @@ app.run(function($rootScope) {
     };
 
     //bind jqueryUI datepicker to
-    $('[data-dp]').each(function() {
-      var $this = $(this);
-      var dpData = $this.data("dp");
-      //if it has quarter end month number add min & max
-      if(dpData.qEnd){
-        $this.datepicker({
-          minDate: new Date(curYear, dpData.qEnd - 3, 1),
-          maxDate: new Date(curYear, dpData.qEnd, 0)
-        });
-      }else{ //otherwise bind without min & max
-        $this.datepicker({
-          minDate: new Date("01/01/"+curYear),
-          maxDate: new Date("12/31/"+curYear)
-        });
-      }
-    });
-    //Bind datepicker with min & max to the from & to inputs
-    $fromDP.datepicker({
-        minDate: new Date("01/01/"+curYear),
-        maxDate: new Date("12/31/"+curYear),
-        onClose: function(selectedDate) {
-          if(selectedDate){
-            $("#to").datepicker("option", "minDate", selectedDate);
-          }
-        }
-    });
-    $toDP.datepicker({
-        minDate: new Date("01/01/"+curYear),
-        maxDate: new Date("12/31/"+curYear),
-        onClose: function(selectedDate) {
-          if(selectedDate){
-            $("#from").datepicker("option", "maxDate", selectedDate);
-          }
-        }
-    });
+    // $('[data-dp]').each(function() {
+    //   var $this = $(this);
+    //   var dpData = $this.data("dp");
+    //   //if it has quarter end month number add min & max
+    //   if(dpData.qEnd){
+    //     $this.datepicker({
+    //       minDate: new Date(curYear, dpData.qEnd - 3, 1),
+    //       maxDate: new Date(curYear, dpData.qEnd, 0)
+    //     });
+    //   }else{ //otherwise bind without min & max
+    //     $this.datepicker({
+    //       minDate: new Date("01/01/"+curYear),
+    //       maxDate: new Date("12/31/"+curYear)
+    //     });
+    //   }
+    // });
+    // //Bind datepicker with min & max to the from & to inputs
+    // $fromDP.datepicker({
+    //     minDate: new Date("01/01/"+curYear),
+    //     maxDate: new Date("12/31/"+curYear),
+    //     onClose: function(selectedDate) {
+    //       if(selectedDate){
+    //         $("#to").datepicker("option", "minDate", selectedDate);
+    //       }
+    //     }
+    // });
+    // $toDP.datepicker({
+    //     minDate: new Date("01/01/"+curYear),
+    //     maxDate: new Date("12/31/"+curYear),
+    //     onClose: function(selectedDate) {
+    //       if(selectedDate){
+    //         $("#from").datepicker("option", "maxDate", selectedDate);
+    //       }
+    //     }
+    // });
 
-    $rootScope.resetDP = function(){
-      $toDP.datepicker("option", "minDate", "01/01/"+curYear);
-      $fromDP.datepicker("option", "maxDate", "12/31/"+curYear);
-    };
+    // $rootScope.resetDP = function(){
+    //   $toDP.datepicker("option", "minDate", "01/01/"+curYear);
+    //   $fromDP.datepicker("option", "maxDate", "12/31/"+curYear);
+    // };
 
 
     // Namespace: Windows.UI.Notifications

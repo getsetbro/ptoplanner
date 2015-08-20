@@ -47,11 +47,11 @@
       </div>
       <div class="inblock">
         <label class="blocklabel">Prorate Start</label>
-        <input type="text" ng-model="prorateStart" ng-change="prorateStartChanged()" data-dp="" placeholder="dd/mm/yyyy"/>
+        <input type="date" ng-model="prorateStart" ng-change="prorateStartChanged()" data-dp="" placeholder="dd/mm/yyyy"/>
       </div>
       <div class="inblock">
         <label class="blocklabel">Prorate End</label>
-        <input type="text" ng-model="prorateEnd" ng-change="prorateEndChanged()" data-dp="" placeholder="dd/mm/yyyy"/>
+        <input type="date" ng-model="prorateEnd" ng-change="prorateEndChanged()" data-dp="" placeholder="dd/mm/yyyy"/>
       </div>
     </fieldset>
     <br>
@@ -64,11 +64,11 @@
             <div class="clearfix">
               <div class="float33">
                 <label class="blocklabel">From</label>
-                <input type="text" id="from" name="dateFrom" ng-model="newPto.dateFrom" ng-change="dateFromChanged()" placeholder="dd/mm/yyyy" />
+                <input type="date" id="from" name="dateFrom" ng-model="newPto.dateFrom" ng-change="dateFromChanged()" placeholder="dd/mm/yyyy" />
               </div>
               <div class="float33">
                 <label class="blocklabel">To</label>
-                <input type="text" id="to" name="dateTo" ng-model="newPto.dateTo" ng-change="dateToChanged()" placeholder="dd/mm/yyyy" />
+                <input type="date" id="to" name="dateTo" ng-model="newPto.dateTo" ng-change="dateToChanged()" placeholder="dd/mm/yyyy" />
               </div>
               <div class="float33">
                 <label class="blocklabel">Note</label>
@@ -91,10 +91,10 @@
         <h2 class="h2">Holidays</h2>
         <fieldset>
            <div id="holidaysFLT" class="holiday-section">
-              <label><input type="checkbox" ng-model="floatsList.q1.used" ng-change="changeFloats('q1')" /><span><br>Q1</span><input type="text" placeholder="dd/mm/yyyy" ng-model="floatsList.q1.date" ng-change="dateFloats('q1')" data-dp='{"qEnd": 3}'/></label><!--
-spacespace --><label><input type="checkbox" ng-model="floatsList.q2.used" ng-change="changeFloats('q2')" /><span><br>Q2</span><input type="text" placeholder="dd/mm/yyyy" ng-model="floatsList.q2.date" ng-change="dateFloats('q2')" data-dp='{"qEnd": 6}'/></label><!--
-spacespace --><label><input type="checkbox" ng-model="floatsList.q3.used" ng-change="changeFloats('q3')" /><span><br>Q3</span><input type="text" placeholder="dd/mm/yyyy" ng-model="floatsList.q3.date" ng-change="dateFloats('q3')" data-dp='{"qEnd": 9}'/></label><!--
-spacespace --><label><input type="checkbox" ng-model="floatsList.q4.used" ng-change="changeFloats('q4')" /><span><br>Q4</span><input type="text" placeholder="dd/mm/yyyy" ng-model="floatsList.q4.date" ng-change="dateFloats('q4')" data-dp='{"qEnd": 12}'/></label>
+              <label><input type="checkbox" ng-model="floatsList.q1.used" ng-change="changeFloats('q1')" /><span><br>Q1</span><input type="date" placeholder="dd/mm/yyyy" ng-model="floatsList.q1.date" ng-change="dateFloats('q1')" data-dp='{"qEnd": 3}'/></label><!--
+spacespace --><label><input type="checkbox" ng-model="floatsList.q2.used" ng-change="changeFloats('q2')" /><span><br>Q2</span><input type="date" placeholder="dd/mm/yyyy" ng-model="floatsList.q2.date" ng-change="dateFloats('q2')" data-dp='{"qEnd": 6}'/></label><!--
+spacespace --><label><input type="checkbox" ng-model="floatsList.q3.used" ng-change="changeFloats('q3')" /><span><br>Q3</span><input type="date" placeholder="dd/mm/yyyy" ng-model="floatsList.q3.date" ng-change="dateFloats('q3')" data-dp='{"qEnd": 9}'/></label><!--
+spacespace --><label><input type="checkbox" ng-model="floatsList.q4.used" ng-change="changeFloats('q4')" /><span><br>Q4</span><input type="date" placeholder="dd/mm/yyyy" ng-model="floatsList.q4.date" ng-change="dateFloats('q4')" data-dp='{"qEnd": 12}'/></label>
           </div>
           <hr>
           <div id="holidaysSTD" class="holiday-section">
