@@ -168,8 +168,8 @@ app.run(function($rootScope) {
       var tileImage = tileContent.getElementsByTagName('image');
 
       tileText[0].appendChild(tileContent.createTextNode(message || 'Demo Message'));
-      tileImage[0].setAttribute('src', imgUrl || 'https://unsplash.it/150/150/?random');
-      tileImage[0].setAttribute('alt', imgAlt || 'Random demo image');
+      tileImage[0].setAttribute('src', imgUrl || 'http://getsetbro.com/ptoplanner/images/ms-icon-150x150.png');
+      tileImage[0].setAttribute('alt', imgAlt || 'Demo image');
 
       var tileNotification = new notifications.TileNotification(tileContent);
       var currentTime = new Date();
