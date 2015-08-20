@@ -162,19 +162,19 @@ app.run(function($rootScope) {
       });
 
       //tile
-      var tile = notifications.TileTemplateType.tileSquare150x150PeekImageAndText01;
-      var tileContent = notifications.TileUpdateManager.getTemplateContent(tile);
-      var tileText = tileContent.getElementsByTagName('text');
-      var tileImage = tileContent.getElementsByTagName('image');
+      // var tile = notifications.TileTemplateType.tileSquare150x150PeekImageAndText01;
+      // var tileContent = notifications.TileUpdateManager.getTemplateContent(tile);
+      // var tileText = tileContent.getElementsByTagName('text');
+      // var tileImage = tileContent.getElementsByTagName('image');
 
-      tileText[0].appendChild(tileContent.createTextNode(message || 'Demo Message'));
-      tileImage[0].setAttribute('src', imgUrl || 'http://getsetbro.com/ptoplanner/images/ms-icon-150x150.png');
-      tileImage[0].setAttribute('alt', imgAlt || 'Demo image');
+      // tileText[0].appendChild(tileContent.createTextNode(message || 'Demo Message'));
+      // tileImage[0].setAttribute('src', imgUrl || 'http://getsetbro.com/ptoplanner/images/ms-icon-150x150.png');
+      // tileImage[0].setAttribute('alt', imgAlt || 'Demo image');
 
-      var tileNotification = new notifications.TileNotification(tileContent);
-      var currentTime = new Date();
-      tileNotification.expirationTime = new Date(currentTime.getTime() + 600 * 1000);
-      notifications.TileUpdateManager.createTileUpdaterForApplication().update(tileNotification);
+      // var tileNotification = new notifications.TileNotification(tileContent);
+      // var currentTime = new Date();
+      // tileNotification.expirationTime = new Date(currentTime.getTime() + 600 * 1000);
+      // notifications.TileUpdateManager.createTileUpdaterForApplication().update(tileNotification);
 
     }
 });
