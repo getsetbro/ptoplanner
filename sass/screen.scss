@@ -186,15 +186,15 @@ select, input {
 select, [type='text'], [type='number'] {
   width: 165px;
 }
-select, input[type='text'], input[type='number'] {
-  font-size: 1em;
-  line-height: 19px;
+select, input[type='text'], input[type='number'], input[type='date'] {
+  font-size: 11px;
+  height: 26px;
   max-width: 100%;
+  min-width: 100%;
   padding: 0 6px;
   border: 1px solid #ddd;
   background-color: #fff;
 }
-
 [disabled], [readonly] {
   cursor: not-allowed;
   color: #fff;
